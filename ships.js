@@ -107,7 +107,7 @@ function placeShips(board, size) {
 	}
 }
 
-module.export = {
+module.exports = {
 	checkOrientation,
 	isOverlap,
 	placeShipOnBoard,

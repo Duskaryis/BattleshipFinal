@@ -48,7 +48,7 @@ function userGuess(board) {
 	}
 }
 
-module.export = {
+module.exports = {
 	greetUser,
 	handleUserInput,
 	userGuess,

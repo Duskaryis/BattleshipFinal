@@ -24,7 +24,7 @@ function generateBoard() {
 	return board;
 }
 
-module.export = {
+module.exports = {
 	getBoardSize,
 	generateBoard,
 };

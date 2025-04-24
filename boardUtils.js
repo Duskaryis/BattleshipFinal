@@ -7,9 +7,15 @@ function isWithinBoard(board, orientation, startRow, startCol, shipSize) {
 	return false;
 }
 
+function generateRowLabels(size) {
+	return Array.from({ length: size }, (_, i) => String.fromCharCode(65 + i));
+}
+
 function renderBoard(board) {
-	return board.map((row) =>
-		row.map((cell) => {
+	const size = board.length;
+	const rowLabels = generateRowLabels(size);
+	const renderedBoard = rowLabels.reduce((acc, label, rowIndex) => {
+		acc[label] = board[rowIndex].map((cell) => {
 			if (cell.hit) {
 				return cell.type === 'ship' && cell.id === 3
 					? '🔵'
@@ -18,8 +24,10 @@ function renderBoard(board) {
 					: '❌';
 			}
 			return '-';
-		})
-	);
+		});
+		return acc;
+	}, {});
+	return renderedBoard;
 }
 
 module.exports = {
